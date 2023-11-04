@@ -1,0 +1,92 @@
+
+@nav_color_hex: #FFFFFF;
+@nav_size: 25;
+@nav_align: right;
+
+@responsive_breakpoint: 780px;
+@slide_height: default;
+@slide_height_responsive: default;
+
+// Prevent jump by "pre-filling" slider widget area if height is set.
+& when ( isnumber( @slide_height ) ) {
+	@media (min-width: @responsive_breakpoint) {
+		& {
+			min-height: @slide_height;
+		}
+	}
+}
+
+& when ( isnumber( @slide_height_responsive ) ) {
+	@media (max-width: @responsive_breakpoint) {
+		& {
+			min-height: @slide_height_responsive;
+		}
+	}
+}
+
+.sow-slider-base {
+
+	ul.sow-slider-images {
+
+		.sow-slider-image-wrapper {
+			height: @slide_height;
+
+			// Vertically align foreground image if there's a height set.
+			& when ( isnumber( @slide_height ) ), ( isnumber( @responsive_breakpoint ) ) {
+				& {
+					display: flex;
+					align-items: center;
+				}
+			}
+
+			& when ( isnumber( @slide_height_responsive ) ) {
+				@media (max-width: @responsive_breakpoint) {
+					& {
+						height: @slide_height_responsive;
+					}
+				}
+			}
+
+			& > a {
+				display: block;
+				width: 100%;
+			}
+
+			.sow-slider-image-foreground-wrapper,
+			& > a .sow-slider-foreground-image  {
+				display: block;
+				line-height: 0;
+				margin-right: auto;
+				margin-left: auto;
+			}
+		}
+
+		.sow-slider-image > video.sow-full-element {
+			height: @slide_height;
+			& when ( isnumber( @slide_height_responsive ) ) {
+				@media (max-width: @responsive_breakpoint) {
+					height: @slide_height_responsive;
+				}
+			}
+		}
+	}
+
+
+	.sow-slider-pagination {
+		text-align: @nav_align;
+
+		li a {
+			background: @nav_color_hex;
+		}
+	}
+
+	.sow-slide-nav {
+
+		font-size: ~"@{nav_size}px";
+
+		a {
+			color: @nav_color_hex;
+		}
+	}
+
+}

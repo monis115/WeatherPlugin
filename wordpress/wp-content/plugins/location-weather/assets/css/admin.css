@@ -1,0 +1,20 @@
+#adminmenu .menu-icon-location_weather .wp-menu-image img {
+    width: 20px;
+    padding: 4px 0;
+    margin-top: 3px;
+}
+#adminmenu #menu-posts-location_weather li:last-child a,
+#adminmenu #menu-posts-location_weather li:last-child a:hover {
+	color: #11b916;
+	font-weight: 700;
+}
+#adminmenu #menu-posts-location_weather li a .sp-go-pro-icon {
+	background-image: url(../images/premium.svg);
+	width: 20px;
+	height: 20px;
+	display: block;
+	float: left;
+	margin-right: 1px;
+	margin-left: -2px;
+	margin-top: -1px;
+}
